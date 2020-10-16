@@ -1,7 +1,6 @@
 
 const initialState = {
-    searchQuery: "",
-    crate: {}
+    searchQuery: ""
 }
 
 export const searchbarReducer = (state = initialState, action) => {
@@ -15,12 +14,12 @@ export const searchbarReducer = (state = initialState, action) => {
             searchQuery: action.payload
         }
 
-        case "UPDATE_CRATE":
-        console.log(action.payload, "this is what's going into the crate")
-        return {
-            ...state,
-            crate: action.payload
-        }
+        // case "UPDATE_CRATE":
+        // console.log(action.payload, "this is what's going into the crate")
+        // return {
+        //     ...state,
+        //     crate: action.payload
+        // }
 
         default:
           return state

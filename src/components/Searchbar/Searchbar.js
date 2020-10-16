@@ -1,6 +1,5 @@
 import React from "react"
 import "./styles.css"
-import axios from "axios"
 import {useSelector, useDispatch } from "react-redux"
 import {handleSearchInput, handleSearch} from "./searchbarActions"
 
