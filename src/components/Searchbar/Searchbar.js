@@ -1,29 +1,22 @@
-import React, { useState } from "react"
+import React from "react"
 import "./styles.css"
 import axios from "axios"
+import {useSelector, useDispatch } from "react-redux"
+import {handleSearchInput, handleSearch} from "./searchbarActions"
 
 const Searchbar = () => {
 
-    const [searchBarValue, setSearchbarValue] = useState("")
-
-    const handleSearch = (searchQuery) => {
-        axios({
-            method: 'get',
-            url: 'https://www.reddit.com/r/' + searchQuery + '.json',
-          })
-            .then(function(response) {
-            console.log("this is the response", response.data.data.children)
-          });
-    }
+    const dispatch = useDispatch()
+    const { searchQuery } = useSelector(state => state.searchbar)
 
     return (
         <>
-            <input type="text" name="subreddit" value={searchBarValue} onChange={(e) => { 
-                setSearchbarValue(e.target.value)
-                console.log(searchBarValue)}}/>
+            <input type="text" name="subreddit" value={searchQuery} onChange={(e) => { 
+                dispatch(handleSearchInput(e.target.value))}}/>
             <button onClick={(e) => {
                 e.preventDefault()
-                handleSearch(searchBarValue)
+                console.log("clicked, this is the search query", searchQuery)
+                dispatch(handleSearch(searchQuery))
             }}>
                 Search
                 </button>

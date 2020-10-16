@@ -1,16 +1,20 @@
 import React from "react"
-import Searchbar from "../components/Searchbar/Searchbar"
+import Home from "./Home"
+import { Provider } from "react-redux"
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import {reducers} from "../redux/rootReducer"
 
-const index = () => {
+const reducer = combineReducers(reducers);
+
+const store = createStore(reducer, applyMiddleware(thunk));
+
+const Index = () => {
   return (
-    <>
-    <h1>CRATE DIGGER</h1>
-    {/* <p>Subreddit search bar will go here</p> */}
-    <Searchbar />
-    <p>content div and left - right controls will go here</p>
-    <p>random, newest, play, pause buttons go here</p>
-    </>
+    <Provider store={store}>
+    <Home />
+    </Provider>
   )
 }
 
-export default index
+export default Index
