@@ -1,18 +1,20 @@
 import React from "react"
+import ReactPlayer from 'react-player'
 import "./styles.css"
 import {useSelector} from "react-redux"
 
 const DisplayRecord = (record, idx) => {
-    return (
-        <div key={idx}>
+    if (record.data.media) {
+
+        return (
+            <div key={idx}>
             <p>
                 {record.data.title}
             </p>
-            {/* <p>
-                {record.}
-            </p> */}
+            <ReactPlayer url={record.data.url} />       
         </div>
     )
+}
 }
 
 const Crate = () => {
