@@ -3,18 +3,13 @@ import ReactPlayer from 'react-player'
 import "./styles.css"
 import {useSelector} from "react-redux"
 
-const DisplayRecord = (record, idx) => {
-    if (record.data.media) {
-
+const RecordDropdown = (record, idx) => {
         return (
-            <div key={idx}>
-            <p>
+            <option key={idx} value={idx}>
                 {record.data.title}
-            </p>
-            <ReactPlayer url={record.data.url} />       
-        </div>
+            </option>
+            // <ReactPlayer url={record.data.url} />       
     )
-}
 }
 
 const Crate = () => {
@@ -23,7 +18,10 @@ const Crate = () => {
     return (
         <>
             <div>
-                {crate.map(DisplayRecord)}
+                <select>
+                {crate.map(RecordDropdown)}
+                </select>
+                
             </div>
         </>
     )    

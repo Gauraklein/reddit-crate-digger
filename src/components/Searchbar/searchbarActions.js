@@ -16,13 +16,20 @@ export const handleSearch = searchQuery => {
       method: "get",
       url: "https://www.reddit.com/r/" + searchQuery + ".json",
     }).then(response => {
+      const unfilteredRecords = response.data.data.children
+      const filteredRecords = []
+      unfilteredRecords.map((record) => {
+        if (record.data.media) {
+          filteredRecords.push(record)
+        }
+      })
       console.log(
         "this is the response in the axios function",
-        response.data.data.children
+        unfilteredRecords
       )
         dispatch({
           type: "UPDATE_CRATE",
-          payload: response.data.data.children,
+          payload: filteredRecords
         })
     })
   }
