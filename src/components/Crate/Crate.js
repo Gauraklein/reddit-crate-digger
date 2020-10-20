@@ -1,7 +1,7 @@
 import React from "react"
-import ReactPlayer from 'react-player'
 import "./styles.css"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
+import {handleRecordSelection} from "./crateActions"
 
 const RecordDropdown = (record, idx) => {
         return (
@@ -12,13 +12,15 @@ const RecordDropdown = (record, idx) => {
     )
 }
 
+
 const Crate = () => {
+    const dispatch = useDispatch()
     const { crate } = useSelector(state => state.crate)
 
     return (
         <>
             <div>
-                <select>
+                <select onChange={(e) => dispatch(handleRecordSelection(e.target.value))}>
                 {crate.map(RecordDropdown)}
                 </select>
                 
