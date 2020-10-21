@@ -9,17 +9,25 @@ const Searchbar = () => {
     const { searchQuery } = useSelector(state => state.searchbar)
 
     return (
-        <>
+        <form onKeyPress={(e) => {
+
+            if (e.key === 'Enter') {
+                e.preventDefault()
+                dispatch(handleSearch(searchQuery))
+            }
+        }}>
             <input type="text" name="subreddit" value={searchQuery} onChange={(e) => { 
                 dispatch(handleSearchInput(e.target.value))}}/>
-            <button onClick={(e) => {
-                e.preventDefault()
-                console.log("clicked, this is the search query", searchQuery)
-                dispatch(handleSearch(searchQuery))
-            }}>
+            <button 
+            type='submit'
+                onClick={(e) => {
+                    e.preventDefault()
+                    dispatch(handleSearch(searchQuery))}}
+                
+            >
                 Search
                 </button>
-        </>
+        </form>
     )
 }
 

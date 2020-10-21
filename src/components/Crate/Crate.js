@@ -15,12 +15,14 @@ const RecordDropdown = (record, idx) => {
 
 const Crate = () => {
     const dispatch = useDispatch()
-    const { crate } = useSelector(state => state.crate)
+    const { crate, crateIndex } = useSelector(state => state.crate)
 
     return (
         <>
             <div>
-                <select onChange={(e) => dispatch(handleRecordSelection(e.target.value))}>
+                <select 
+                    value={crateIndex}
+                    onChange={(e) => dispatch(handleRecordSelection(e.target.value))}>
                 {crate.map(RecordDropdown)}
                 </select>
                 
