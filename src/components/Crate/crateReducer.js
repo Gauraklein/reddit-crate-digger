@@ -27,17 +27,25 @@ export const crateReducer = (state = initialState, action) => {
 
         case "INCREMENT_CRATE_INDEX": 
         console.log("incrementing crate index", action.payload)
+        if (action.payload >= state.crateIndex.length) {
+            action.payload = 0
+        }
         return {
             ...state,
             crateIndex: action.payload
         }
 
         case "DECREMENT_CRATE_INDEX": 
-        console.log("decrementing crate index")
+        console.log("decrementing crate index", action.payload)
+        if (action.payload < 0) {
+            action.payload = state.crate.length - 1
+        }
+        console.log("this is the action.payload", action.payload, state.crate)
         return {
             ...state,
             crateIndex: action.payload
         }
+
         default:
           return state
       }

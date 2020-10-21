@@ -12,7 +12,7 @@ const MediaPlayer = () => {
 
     return (
         <div>
-            <ReactPlayer url={crate[crateIndex].data.url} playing={true}/>
+            <ReactPlayer url={crate[crateIndex].data.url} playing={true} onEnded={() => dispatch(incrementCrateIndex(crateIndex))}/>
             <div>
             <button onClick={(e) => dispatch(decrementCrateIndex(crateIndex))}>
                 Previous
