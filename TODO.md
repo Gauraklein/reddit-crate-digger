@@ -5,3 +5,4 @@
 - dealing with other types of media: soundcloud, spotify, etc
 - add a loading spinner
 - error handling
+- how to add things to a playlist or collection?

@@ -12,15 +12,16 @@ const MediaPlayer = () => {
 
     return (
         <div>
-            <ReactPlayer url={crate[crateIndex].data.url} playing={true} onEnded={() => dispatch(incrementCrateIndex(crateIndex))}/>
-            <div>
-            <button onClick={(e) => dispatch(decrementCrateIndex(crateIndex))}>
+            <ReactPlayer url={crate[crateIndex].data.url} playing={true} controls={true} onEnded={() => dispatch(incrementCrateIndex(crateIndex))}/>
+            <div className="media-buttons-container">
+
+
+            <button className="media-button" onClick={(e) => dispatch(decrementCrateIndex(crateIndex))}>
                 Previous
             </button>
-            </div>
-            <div>
 
-            <button onClick={(e) => dispatch(incrementCrateIndex(crateIndex))}>
+
+            <button className="media-button" onClick={(e) => dispatch(incrementCrateIndex(crateIndex))}>
                 Next
             </button>
             </div>
