@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;700&family=Roboto&display=swap');
+
 body {
     background-color: #3d3d3d;
     color: #fff;
@@ -10,5 +12,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Bebas Neue', cursive;
     /* height: 100vh; */
+}
+
+.search-and-crate-container {
+    background: #646b6b;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 9px 24px 15px rgba(0,0,0,0.64); 
+    box-shadow: 0px 9px 24px 15px rgba(0,0,0,0.64);
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
 }

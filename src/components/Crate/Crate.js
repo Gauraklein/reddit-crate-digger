@@ -18,16 +18,21 @@ const Crate = () => {
     const { crate, crateIndex } = useSelector(state => state.crate)
 
     return (
-        <>
-            <div>
+            <div className="crate-container">
+                <h2>
+                    Now Playing
+                </h2>
+                <p>{crate[crateIndex].data.title}</p>
+                {/* <button>
+                    Show full crate
+                </button>
                 <select 
                     value={crateIndex}
                     onChange={(e) => dispatch(handleRecordSelection(e.target.value))}>
                 {crate.map(RecordDropdown)}
-                </select>
+                </select> */}
                 
             </div>
-        </>
     )    
 }
 
